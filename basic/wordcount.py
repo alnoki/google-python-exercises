@@ -45,6 +45,52 @@ import sys
 # and builds and returns a word/count dict for it.
 # Then print_words() and print_top() can just call the utility function.
 
+def get_file_words(filename):
+    """
+    Reads a file and returns a word/count dict for it. Words are
+    converted to lowercase
+    :param filename: The name of a file to analyze
+    :return: A dict with with words and word counts as key/value pairs
+    """
+    word_count = {}
+    input_file = open(filename, 'r')
+    for line in input_file:
+        words = line.split()
+        for word in words:
+            word = word.lower()
+            if word not in word_count:
+                word_count[word] = 1
+            else:
+                word_count[word] = word_count[word] + 1
+    input_file.close()
+    print word_count
+    sys.exit(0)
+    return word_count
+
+
+
+def print_words(filename):
+    """
+    Counts how often each word appears in text and prints the list
+    word1 count1
+    word2 count2
+    ...
+
+    The list is sorted by word
+    :param filename: The name of a file to examine
+    """
+    return
+
+def print_top(filename):
+    """
+    Prints the top 20 occurring words and their counts
+    :param filename: The name of a file to examine
+    """
+    return
+
+
+
+
 ###
 
 # This basic command line argument parsing code is provided and
@@ -56,6 +102,7 @@ def main():
 
   option = sys.argv[1]
   filename = sys.argv[2]
+  get_file_words(filename)
   if option == '--count':
     print_words(filename)
   elif option == '--topcount':
