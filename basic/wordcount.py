@@ -63,8 +63,6 @@ def get_file_words(filename):
             else:
                 word_count[word] = word_count[word] + 1
     input_file.close()
-    print word_count
-    sys.exit(0)
     return word_count
 
 
@@ -79,17 +77,24 @@ def print_words(filename):
     The list is sorted by word
     :param filename: The name of a file to examine
     """
-    return
+    word_count = get_file_words(filename)
+    words = sorted(word_count.keys())
+    for word in words:
+        print word, word_count[word]
+
+def get_count(word_count_tuple):
+    """Returns the count of a word/word count tuple"""
+    return word_count_tuple[1]
 
 def print_top(filename):
     """
     Prints the top 20 occurring words and their counts
     :param filename: The name of a file to examine
     """
-    return
-
-
-
+    word_count = get_file_words(filename)
+    items = sorted(word_count.items(), key=get_count, reverse=True)
+    for item in items[:20]:
+        print item[0], item[1]
 
 ###
 
@@ -102,7 +107,6 @@ def main():
 
   option = sys.argv[1]
   filename = sys.argv[2]
-  get_file_words(filename)
   if option == '--count':
     print_words(filename)
   elif option == '--topcount':
