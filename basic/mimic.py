@@ -24,7 +24,7 @@ We'll say that the empty string is what comes before
 the first word in the file.
 
 With the mimic dict, it's fairly easy to emit random
-text that mimics the original. Print a word, then look
+text that mimics the original. print (a word, then look)
 up what words might come next and pick one at random as
 the next work.
 Use the empty string as the first word to prime things.
@@ -60,7 +60,7 @@ def print_mimic(mimic_dict, word):
 # Provided main(), calls mimic_dict() and mimic()
 def main():
   if len(sys.argv) != 2:
-    print 'usage: ./mimic.py file-to-read'
+    print ('usage: ./mimic.py file-to-read')
     sys.exit(1)
 
   dict = mimic_dict(sys.argv[1])

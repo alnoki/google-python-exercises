@@ -18,7 +18,7 @@ word1 count1
 word2 count2
 ...
 
-Print the above list in order sorted by word (python will sort punctuation to
+print (the above list in order sorted by word (python will sort punctuation to)
 come before letters -- that's fine). Store all the words as lowercase,
 so 'The' and 'the' count as the same word.
 
@@ -29,7 +29,7 @@ so the most common word is first, then the next most common, and so on.
 Use str.split() (no arguments) to split on all whitespace.
 
 Workflow: don't build the whole program at once. Get it to an intermediate
-milestone and print your data structure and sys.exit(0).
+milestone and print (your data structure and sys.exit(0).)
 When that's working, try for the next milestone.
 
 Optional: define a helper function to avoid code duplication inside
@@ -80,7 +80,7 @@ def print_words(filename):
     word_count = get_file_words(filename)
     words = sorted(word_count.keys())
     for word in words:
-        print word, word_count[word]
+        print( word, word_count[word])
 
 def get_count(word_count_tuple):
     """Returns the count of a word/word count tuple"""
@@ -94,7 +94,7 @@ def print_top(filename):
     word_count = get_file_words(filename)
     items = sorted(word_count.items(), key=get_count, reverse=True)
     for item in items[:20]:
-        print item[0], item[1]
+        print( item[0], item[1])
 
 ###
 
@@ -102,7 +102,7 @@ def print_top(filename):
 # calls the print_words() and print_top() functions which you must define.
 def main():
   if len(sys.argv) != 3:
-    print 'usage: ./wordcount.py {--count | --topcount} file'
+    print ('usage: ./wordcount.py {--count | --topcount} file')
     sys.exit(1)
 
   option = sys.argv[1]
@@ -112,7 +112,7 @@ def main():
   elif option == '--topcount':
     print_top(filename)
   else:
-    print 'unknown option: ' + option
+    print( 'unknown option: ' + option)
     sys.exit(1)
 
 if __name__ == '__main__':

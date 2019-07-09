@@ -42,7 +42,7 @@ def copy_to(paths, to_dir):
 def zip_to(paths, zip_file):
     """Zip up all given files into a zip with given name"""
     command = 'zip -j' + zip_file + ' ' + ' '.join(paths)
-    print "Command will be: " + command
+    print ("Command will be: " + command)
     (status, output) = commands.getstatusoutput(command)
     if status:  # If status exists, there was an error
         sys.stderr.write('error: ' + output)
@@ -57,7 +57,7 @@ def main():
     # which is the script itself.
     args = sys.argv[1:]
     if not args:
-        print "usage: [--todir dir][--tozip zipfile] dir [dir ...]";
+        print ("usage: [--todir dir][--tozip zipfile] dir [dir ...]";)
         sys.exit(1)
 
     # todir and tozip are either set from command line
@@ -74,7 +74,7 @@ def main():
         del args[0:2]
 
     if len(args) == 0:
-        print "error: must specify one or more dirs"
+        print ("error: must specify one or more dirs")
         sys.exit(1)
 
     # +++your code here+++
@@ -88,7 +88,7 @@ def main():
     elif tozip:
         zip_to(paths, tozip)
     else:
-        print '\n'.join(paths)
+        print ('\n'.join(paths))
 
 
 if __name__ == "__main__":
