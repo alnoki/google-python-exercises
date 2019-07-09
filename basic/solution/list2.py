@@ -70,13 +70,13 @@ def test(got, expected):
 
 # Calls the above functions with interesting inputs.
 def main():
-  print( 'remove_adjacent')
+  print (('remove_adjacent'))
   test(remove_adjacent([1, 2, 2, 3]), [1, 2, 3])
   test(remove_adjacent([2, 2, 3, 3, 3]), [2, 3])
   test(remove_adjacent([]), [])
 
   print
-  print( 'linear_merge')
+  print (('linear_merge'))
   test(linear_merge(['aa', 'xx', 'zz'], ['bb', 'cc']),
        ['aa', 'bb', 'cc', 'xx', 'zz'])
   test(linear_merge(['aa', 'xx'], ['bb', 'cc', 'zz']),
