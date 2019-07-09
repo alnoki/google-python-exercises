@@ -71,7 +71,7 @@ def test(got, expected):
     prefix = ' OK '
   else:
     prefix = '  X '
-  print ('%s got: %s expected: %s' % )(prefix, repr(got), repr(expected))
+  print ('%s got: %s expected: %s' % (prefix, repr(got), repr(expected)))
 
 
 # Provided main() calls the above functions with interesting inputs,
@@ -100,7 +100,7 @@ def main():
   test(fix_start('donut'), 'donut')
 
   print
-  ˆ('mix_up')
+  ('mix_up')
   test(mix_up('mix', 'pod'), 'pox mid')
   test(mix_up('dog', 'dinner'), 'dig donner')
   test(mix_up('gnash', 'sport'), 'spash gnort')
