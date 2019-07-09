@@ -35,66 +35,34 @@ Suggested milestones for incremental development:
 """
 
 def extract_names(filename):
-    """
-    Given a file name for baby.html, returns a list starting with the year string
-    followed by the name-rank strings in alphabetical order.
-    ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
-    """
-    # +++your code here+++
-    names = []  # A list
-    file = open(filename, 'rU')
-    text = file.read()  # Faster to do read on whole file at once
-    file.close
-    # Group of four decimals after string 'Popularity in '
-    year_match = re.search(r'Popularity\sin\s(\d\d\d\d)', text)
-    if not year_match:
-        sys.stderr.write('Could not find the year!\n')
-        sys.exit(1)
-    names.append(year_match.group(1))
-    # Groups in parenthesis are separated by .html syntax. Any number
-    # of decimals, then any number of letters (x2)
-    tuples = re.findall(r'>(\d+)</td><td>(\w+)</td><td>(\w+)<', text)
-    names_to_rank = {}  # A dict
-    for rank, boy_name, girl_name in tuples:  # Unpacks tuple
-        if boy_name not in names_to_rank:
-            names_to_rank[boy_name] = rank
-        if girl_name not in names_to_rank:
-            names_to_rank[girl_name] = rank
-    sorted_names = sorted(names_to_rank.keys())
-    for name in sorted_names:  # Loops over keys
-        names.append(name + ' ' + names_to_rank[name])
-    return names
+  """
+  Given a file name for baby.html, returns a list starting with the year string
+  followed by the name-rank strings in alphabetical order.
+  ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
+  """
+  # +++your code here+++
+  return
 
 
 def main():
-    # This command-line parsing code is provided.
-    # Make a list of command line arguments, omitting the [0] element
-    # which is the script itself.
-    args = sys.argv[1:]
+  # This command-line parsing code is provided.
+  # Make a list of command line arguments, omitting the [0] element
+  # which is the script itself.
+  args = sys.argv[1:]
 
-    if not args:
-        print 'usage: [--summaryfile] file [file ...]'
-        sys.exit(1)
+  if not args:
+    print ('usage: [--summaryfile] file [file ...]')
+    sys.exit(1)
 
-    # Notice the summary flag and remove it from args if it is present.
-    summary = False
-    if args[0] == '--summaryfile':
-        summary = True
-        del args[0]
+  # Notice the summary flag and remove it from args if it is present.
+  summary = False
+  if args[0] == '--summaryfile':
+    summary = True
+    del args[0]
 
-    # +++your code here+++
-    # For each filename, get the names, then either print the text output
-    # or write it to a summary file
-    for filename in args:
-        names = extract_names(filename)
-        text = '\n'.join(names)  # Make whole list into text
-        if summary:
-            outfile = open(filename + '.summary', 'w')
-            outfile.write(text + '\n')
-            outfile.close()
-        else:
-            print text
-
-
+  # +++your code here+++
+  # For each filename, get the names, then either print the text output
+  # or write it to a summary file
+  
 if __name__ == '__main__':
   main()

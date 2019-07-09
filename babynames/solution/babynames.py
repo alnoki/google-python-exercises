@@ -27,10 +27,10 @@ Here's what the html looks like in the baby.html files:
 ...
 
 Suggested milestones for incremental development:
- -Extract the year and print it
- -Extract the names and rank numbers and just print them
- -Get the names data into a dict and print it
- -Build the [year, 'name rank', ... ] list and print it
+ -Extract the year and print (it)
+ -Extract the names and rank numbers and just print (them)
+ -Get the names data into a dict and print (it)
+ -Build the [year, 'name rank', ... ] list and print (it)
  -Fix main() to use the extract_names list
 """
 
@@ -63,7 +63,7 @@ def extract_names(filename):
   # Extract all the data tuples with a findall()
   # each tuple is: (rank, boy-name, girl-name)
   tuples = re.findall(r'<td>(\d+)</td><td>(\w+)</td>\<td>(\w+)</td>', text)
-  #print tuples
+  #print (tuples)
 
   # Store data into a dict using each name as a key and that
   # name's rank number as the value.
@@ -101,7 +101,7 @@ def main():
   args = sys.argv[1:]
 
   if not args:
-    print 'usage: [--summaryfile] file [file ...]'
+    print ('usage: [--summaryfile] file [file ...]')
     sys.exit(1)
 
   # Notice the summary flag and remove it from args if it is present.
@@ -111,7 +111,7 @@ def main():
     del args[0]
 
   # +++your code here+++
-  # For each filename, get the names, then either print the text output
+  # For each filename, get the names, then either print (the text output)
   # or write it to a summary file
   # LAB(begin solution)
   for filename in args:
@@ -125,7 +125,7 @@ def main():
       outf.write(text + '\n')
       outf.close()
     else:
-      print text
+      print (text)
   # LAB(end solution)
 
 if __name__ == '__main__':
